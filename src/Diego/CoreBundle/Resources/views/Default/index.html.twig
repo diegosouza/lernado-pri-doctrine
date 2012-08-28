@@ -1,1 +1,5 @@
-Hello {{ name }}!
+<ul>
+{% for person in people %}
+    <li>{{ person.id }} - {{ person.name }} - {{ person.document }} - {{ person.type }}</li>
+{% endfor %}
+</ul>

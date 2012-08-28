@@ -44,6 +44,12 @@ doctrine:
         password: %database_password%
         charset:  UTF8
 
+        types:
+            persontype: Diego\CoreBundle\Type\PersonType
+        
+        mapping_types:
+            enum: string
+
     orm:
         auto_generate_proxy_classes: %kernel.debug%
         auto_mapping: true
