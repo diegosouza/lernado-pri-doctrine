@@ -1,3 +1,7 @@
+DiegoCoreBundle:
+    resource: "@DiegoCoreBundle/Resources/config/routing.yml"
+    prefix:   /
+
 # Internal routing configuration to handle ESI
 #_internal:
 #   resource: "@FrameworkBundle/Resources/config/routing/internal.xml"
