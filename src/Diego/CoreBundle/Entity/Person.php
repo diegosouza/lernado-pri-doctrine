@@ -6,35 +6,28 @@ use Diego\CoreBundle\Entity\LegalPerson;
 use Diego\CoreBundle\Entity\NaturalPerson;
 use Diego\CoreBundle\Type\PersonType;
 
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\DiscriminatorColumn;
-use Doctrine\ORM\Mapping\DiscriminatorMap;
-use Doctrine\ORM\Mapping\Entity;
-use Doctrine\ORM\Mapping\GeneratedValue;
-use Doctrine\ORM\Mapping\Id;
-use Doctrine\ORM\Mapping\InheritanceType;
-
-use Symfony\Component\Validator\Constraints;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @Entity
- * @InheritanceType("JOINED")
- * @DiscriminatorColumn(name="type", type="persontype")
- * @DiscriminatorMap({"person" = "Person", "naturalPerson" = "NaturalPerson", "legalPerson" = "LegalPerson"})
+ * @ORM\Entity
+ * @ORM\Table(name="person")
+ * @ORM\InheritanceType("JOINED")
+ * @ORM\DiscriminatorColumn(name="type", type="persontype")
+ * @ORM\DiscriminatorMap({"NATURAL" = "NaturalPerson", "LEGAL" = "LegalPerson"})
  */
 abstract class Person
 {
     /**
-     * @Id
-     * @Column(type="integer")
-     * @GeneratedValue(strategy="AUTO")
+     * @ORM\Id
+     * @ORM\Column(type="integer")
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     protected $id;
-    
+
     protected $type;
     
     /**
-     * @Column(type="string", length=100)
+     * @ORM\Column(type="string", length=100)
      */
     protected $name;
 

@@ -5,18 +5,16 @@ namespace Diego\CoreBundle\Entity;
 use Diego\CoreBundle\Entity\Person;
 use Diego\CoreBundle\Type\PersonType;
 
-use Doctrine\ORM\Mapping\Column;
-use Doctrine\ORM\Mapping\Entity;
-
-use Symfony\Component\Validator\Constraints;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @Entity
+ * @ORM\Entity
+ * @ORM\Table(name="legalperson")
  */
 class LegalPerson extends Person
 {
     /**
-     * @Column(type="string", length=14)
+     * @ORM\Column(type="string", length=14)
      */
     private $cnpj;
     
