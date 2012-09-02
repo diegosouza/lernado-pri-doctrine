@@ -1,3 +1,3 @@
 insert:
-    pattern:  /
-    defaults: { _controller: DiegoCoreBundle:Default:index }
+    pattern:  /insert
+    defaults: { _controller: DiegoCoreBundle:Default:insert }

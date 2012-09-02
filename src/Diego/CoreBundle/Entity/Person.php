@@ -2,6 +2,7 @@
 
 namespace Diego\CoreBundle\Entity;
 
+use Diego\CoreBundle\Entity\BaseEntity;
 use Diego\CoreBundle\Entity\LegalPerson;
 use Diego\CoreBundle\Entity\NaturalPerson;
 use Diego\CoreBundle\Type\PersonType;
@@ -15,7 +16,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\DiscriminatorColumn(name="type", type="persontype")
  * @ORM\DiscriminatorMap({"NATURAL" = "NaturalPerson", "LEGAL" = "LegalPerson"})
  */
-abstract class Person
+abstract class Person extends BaseEntity
 {
     /**
      * @ORM\Id
@@ -35,11 +36,6 @@ abstract class Person
     {
         return $this->id;
     }            
-
-    public function setId($id)
-    {
-        $this->id = $id;
-    }
 
     public function getType()
     {
