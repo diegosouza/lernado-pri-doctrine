@@ -18,11 +18,6 @@ class LegalPerson extends Person
      */
     private $cnpj;
     
-    public function __construct()
-    {
-        $this->setType(PersonType::LEGAL);
-    }
-    
     public function getDocument()
     {
         return $this->cnpj;
@@ -31,5 +26,10 @@ class LegalPerson extends Person
     public function setDocument($document)
     {
         $this->cnpj = $document;
+    }
+
+    public function getType()
+    {
+        return PersonType::LEGAL;
     }
 }

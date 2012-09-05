@@ -18,11 +18,6 @@ class NaturalPerson extends Person
      */
     private $cpf;
 
-    public function __construct()
-    {
-        $this->setType(PersonType::NATURAL);
-    }
-    
     public function getDocument()
     {
         return $this->cpf;
@@ -31,5 +26,10 @@ class NaturalPerson extends Person
     public function setDocument($document)
     {
         $this->cpf = $document;
-    }    
+    }
+
+    public function getType()
+    {
+        return PersonType::NATURAL;
+    }
 }

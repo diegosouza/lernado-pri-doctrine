@@ -4,7 +4,8 @@ namespace Diego\CoreBundle\Controller;
 
 use Diego\CoreBundle\Entity\LegalPerson;
 use Diego\CoreBundle\Entity\NaturalPerson;
-
+use Diego\CoreBundle\Entity\Person;
+use Diego\CoreBundle\Type\PersonType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
 class DefaultController extends Controller
@@ -27,7 +28,20 @@ class DefaultController extends Controller
         $em->flush();
         
         return $this->render('DiegoCoreBundle:Default:index.html.twig',
-                array('people' => array($diego, $empresa))
+            array('people' => array($diego, $empresa))
+        );
+    }
+
+    public function findAction()
+    {
+//        $personRepository = $this->getDoctrine()->getRepository('DiegoCoreBundle:Person');
+//        $people = $personRepository->findLatest(array());
+
+        $appService = $this->get('app.service');
+        $people = $appService->findWithBusinessLogic();
+
+        return $this->render('DiegoCoreBundle:Default:index.html.twig',
+            array('people' => $people)
         );
     }
 }

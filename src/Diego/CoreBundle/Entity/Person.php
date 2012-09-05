@@ -10,7 +10,7 @@ use Diego\CoreBundle\Type\PersonType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Diego\CoreBundle\Repository\PersonRepository")
  * @ORM\Table(name="person")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="persontype")
@@ -37,16 +37,6 @@ abstract class Person extends BaseEntity
         return $this->id;
     }            
 
-    public function getType()
-    {
-        return $this->type;
-    }            
-
-    public function setType($personType)
-    {
-        $this->type = $personType;
-    }
-
     public function getName()
     {
         return $this->name;
@@ -57,6 +47,7 @@ abstract class Person extends BaseEntity
         $this->name = $name;
     }
 
+    abstract function getType();
     abstract function getDocument();
     abstract function setDocument($document);
 }
