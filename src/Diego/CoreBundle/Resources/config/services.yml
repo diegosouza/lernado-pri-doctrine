@@ -2,10 +2,6 @@ parameters:
 #    diego_core.example.class: Diego\CoreBundle\Example
 
 services:
-    app.service:
-      class: Diego\CoreBundle\Service\AppService
-      arguments: [ @doctrine.orm.default_entity_manager ]
-      
 #    diego_core.example:
 #        class: %diego_core.example.class%
 #        arguments: [@service_id, "plain_value", %parameter%]

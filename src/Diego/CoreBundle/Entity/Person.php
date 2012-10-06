@@ -10,7 +10,7 @@ use Diego\CoreBundle\Type\PersonType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass="Diego\CoreBundle\Repository\PersonRepository")
+ * @ORM\Entity
  * @ORM\Table(name="person")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="type", type="persontype")
